@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo, useCallback } from 'react';
 import { Box, Container, Typography, Grid } from '@mui/material';
 import AppTile from './AppTile';
 import StreamItApp from './StreamItApp';
@@ -94,7 +94,7 @@ const TVInterface = () => {
     }
   };
 
-  const handleAppLaunch = (app) => {
+  const handleAppLaunch = useCallback((app) => {
     console.log(`Launching ${app.name}...`);
     
     if (app.id === 'streamit') {
@@ -103,11 +103,11 @@ const TVInterface = () => {
       // Here you would typically navigate to other apps or show a modal
       alert(`Launching ${app.name}!\n${app.description}`);
     }
-  };
+  }, []);
 
-  const handleCloseStreamIt = () => {
+  const handleCloseStreamIt = useCallback(() => {
     setShowStreamIt(false);
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
@@ -178,4 +178,4 @@ const TVInterface = () => {
   );
 };
 
-export default TVInterface;
+export default memo(TVInterface);

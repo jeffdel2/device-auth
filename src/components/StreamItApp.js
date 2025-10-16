@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  AppBar, 
-  Toolbar, 
   Typography, 
-  Button, 
-  Box, 
-  Container,
-  Card,
-  CardContent,
-  Grid,
-  Chip,
-  Avatar
+  Button
 } from '@mui/material';
 import { 
   Movie, 
@@ -23,7 +14,6 @@ import authService from '../services/authService';
 import StreamItAuth from './StreamItAuth';
 import Profile from './Profile';
 import { debugLog, checkAuth0Config } from '../utils/debug';
-import './StreamItApp.css';
 
 const StreamItApp = ({ onClose }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

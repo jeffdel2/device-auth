@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Card, CardContent, Typography, Box, Chip, IconButton } from '@mui/material';
 import { PlayArrow, Movie } from '@mui/icons-material';
 import './AppTile.css';
@@ -74,4 +74,4 @@ const AppTile = ({ app, isSelected, onClick }) => {
   );
 };
 
-export default AppTile;
+export default memo(AppTile);

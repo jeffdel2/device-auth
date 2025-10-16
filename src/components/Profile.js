@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Box, 
-  Container, 
   Typography, 
   Button, 
-  Card, 
-  CardContent, 
   Avatar,
   Divider,
   Accordion,
@@ -23,7 +19,6 @@ import {
   Person
 } from '@mui/icons-material';
 import authService from '../services/authService';
-import './Profile.css';
 
 const Profile = ({ onBack }) => {
   const [user, setUser] = useState(null);

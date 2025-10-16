@@ -1,6 +1,8 @@
 // Debug utility for troubleshooting
 export const debugLog = (message, data = null) => {
-  console.log(`[StreamIt Debug] ${message}`, data || '');
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[StreamIt Debug] ${message}`, data || '');
+  }
 };
 
 export const checkAuth0Config = () => {
@@ -13,11 +15,13 @@ export const checkAuth0Config = () => {
     isConfigured: !!(serverUrl || true) // Default to localhost for development
   };
   
-  // Always log to console for debugging
-  console.log('🔧 Auth0 Server Proxy Configuration:', config);
-  console.log('📋 Environment Variables:', {
-    'REACT_APP_SERVER_URL': process.env.REACT_APP_SERVER_URL || 'http://localhost:3001 (default)'
-  });
+  // Only log in development
+  if (process.env.NODE_ENV === 'development') {
+    console.log('🔧 Auth0 Server Proxy Configuration:', config);
+    console.log('📋 Environment Variables:', {
+      'REACT_APP_SERVER_URL': process.env.REACT_APP_SERVER_URL || 'http://localhost:3001 (default)'
+    });
+  }
   
   debugLog('Auth0 Server Proxy Configuration Check:', config);
   

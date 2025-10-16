@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Box, 
-  Container, 
   Typography, 
   Button, 
-  Card, 
-  CardContent, 
   LinearProgress,
   CircularProgress,
   Alert,
@@ -21,7 +17,6 @@ import {
 } from '@mui/icons-material';
 import QRCode from 'qrcode';
 import authService from '../services/authService';
-import './StreamItAuth.css';
 
 const StreamItAuth = ({ onAuthSuccess, onAuthCancel }) => {
   const [authState, setAuthState] = useState('initializing'); // initializing, device-code, polling, success, error
