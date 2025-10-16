@@ -1,0 +1,214 @@
+/* TV Set Container */
+.tv-set {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* TV Bezel */
+.tv-bezel {
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 
+    0 0 0 2px #333,
+    0 20px 40px rgba(0, 0, 0, 0.8),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.tv-bezel::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #444;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+.tv-bezel::after {
+  content: '';
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px #00ff00,
+    0 0 20px rgba(0, 255, 0, 0.5);
+  animation: power-light-pulse 2s ease-in-out infinite;
+}
+
+@keyframes power-light-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 
+      0 0 10px #00ff00,
+      0 0 20px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 
+      0 0 5px #00ff00,
+      0 0 10px rgba(0, 255, 0, 0.3);
+  }
+}
+
+/* TV Screen */
+.tv-screen {
+  background: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  width: 1200px;
+  max-width: 95vw;
+  min-height: 80vh;
+  max-height: 95vh;
+}
+
+.tv-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  z-index: -1;
+}
+
+/* TV Interface */
+.tv-interface {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.tv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.tv-title {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.tv-time {
+  color: #888;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-family: 'Courier New', monospace;
+}
+
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.tv-footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.navigation-hint {
+  color: #666;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 1200px) {
+  .tv-screen {
+    width: 1000px;
+    min-height: 75vh;
+  }
+  
+  .apps-grid {
+    gap: 20px;
+    max-width: 900px;
+  }
+  
+  .tv-title {
+    font-size: 1.8rem;
+  }
+  
+  .tv-time {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .tv-screen {
+    width: 800px;
+    min-height: 70vh;
+  }
+  
+  .tv-interface {
+    padding: 20px;
+  }
+  
+  .apps-grid {
+    gap: 15px;
+    max-width: 700px;
+  }
+  
+  .tv-title {
+    font-size: 1.5rem;
+  }
+  
+  .tv-time {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tv-screen {
+    width: 95vw;
+    min-height: 80vh;
+    height: auto;
+  }
+  
+  .apps-grid {
+    gap: 15px;
+    max-width: 90vw;
+    flex-direction: column;
+  }
+  
+  .tv-interface {
+    padding: 15px;
+  }
+  
+  .tv-title {
+    font-size: 1.3rem;
+  }
+  
+  .tv-time {
+    font-size: 0.9rem;
+  }
+}

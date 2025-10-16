@@ -1,0 +1,274 @@
+.app-tile {
+  width: 200px;
+  height: 140px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+}
+
+.app-tile:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.app-tile.selected {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border-color: #ffffff;
+}
+
+.app-tile-content {
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.app-emoji {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+.app-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-name {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.selection-indicator {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  z-index: 1;
+}
+
+.selection-ring {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #ffffff;
+  border-radius: 24px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+/* StreamIt Special Styling */
+.streamit-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.streamit-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #FF6B35, #F7931E, #FFD700, #FF6B35);
+  border-radius: 12px;
+  z-index: -1;
+  animation: streamit-glow 3s ease-in-out infinite;
+}
+
+@keyframes streamit-glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(4px);
+  }
+}
+
+.streamit-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.streamit-icon {
+  margin-bottom: 4px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  animation: streamit-bounce 2s ease-in-out infinite;
+}
+
+@keyframes streamit-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.streamit-text {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.streamit-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge-text {
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.streamit-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: sparkle-float 4s ease-in-out infinite;
+}
+
+.sparkle-1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 60%;
+  right: 20%;
+  animation-delay: 1.3s;
+}
+
+.sparkle-3 {
+  bottom: 25%;
+  left: 25%;
+  animation-delay: 2.6s;
+}
+
+@keyframes sparkle-float {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.2);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .app-tile {
+    width: 180px;
+    height: 120px;
+  }
+  
+  .app-name {
+    font-size: 1rem;
+  }
+  
+  .streamit-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-tile {
+    width: 160px;
+    height: 110px;
+  }
+  
+  .app-tile-content {
+    padding: 12px;
+  }
+  
+  .app-name {
+    font-size: 0.9rem;
+  }
+  
+  .streamit-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-tile {
+    width: 140px;
+    height: 100px;
+  }
+  
+  .app-tile-content {
+    padding: 10px;
+  }
+  
+  .app-name {
+    font-size: 0.8rem;
+  }
+  
+  .streamit-text {
+    font-size: 0.9rem;
+  }
+}
