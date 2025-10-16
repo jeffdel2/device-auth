@@ -9,7 +9,10 @@ import {
   AccordionDetails,
   IconButton,
   Alert,
-  CircularProgress
+  CircularProgress,
+  Card,
+  CardContent,
+  Box
 } from '@mui/material';
 import { 
   Movie, 
